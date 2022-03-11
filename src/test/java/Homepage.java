@@ -70,6 +70,18 @@ public class Homepage extends PageObject {
         this.readMoreLearnSeleniumButton.click();
     }
 
+   @FindBy(xpath = "/html/body/footer/div/a/i")
+    private WebElement upArrowButton;
 
+    public void clickUpArrowButton () {
+        Utils.scrollToElement(driver,upArrowButton);
+        this.upArrowButton.click();
+    }
+    @FindBy(xpath = "/html/body/section[1]/div/div/div/h1")
+    private WebElement becomeCertifiedText;
 
+     public String findBecomeCertifiedText (){
+         Utils.scrollToElement(driver,becomeCertifiedText);
+         return this.becomeCertifiedText.getText();
+     }
 }

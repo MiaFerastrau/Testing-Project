@@ -13,13 +13,14 @@ public class HomePageTests {
         System.setProperty("webdriver.chrome.driver", Utils.CHROME_DRIVER_LOCATION);
     }
 
+
     @Test(testName = "Read Hybrid details")
     public void readHybridLearningDetails(){
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
         webForm.clickReadMoreHybridButton();
         Hybrid form = new Hybrid(driver);
-        Assert.assertEquals(form.readHybridHeader (),Constants.HYBRID_HEADER);
+        Assert.assertEquals(form.readHybridHeader(),Constants.HYBRID_HEADER);
     }
 
 
@@ -58,6 +59,14 @@ public class HomePageTests {
         webForm.clickReadMoreLearnSeleniumButton();
         LearnSelenium form = new LearnSelenium(driver);
         Assert.assertEquals(form.readSeleniumPage (),Constants.LEARN_SELENIUM);
+    }
+
+    @Test (testName = "Verify functionality for Up Arrow Button")
+    public void clickUpArrowButton (){
+        driver.get(Utils.BASE_URL);
+        Homepage webForm  = new Homepage(driver);
+        webForm.clickUpArrowButton();
+        Assert.assertEquals(webForm.findBecomeCertifiedText(),"Become a Certified Software Tester");
     }
 
     @AfterSuite
